@@ -38,10 +38,6 @@ HTMLWidgets.widget({
         elementsByKinds.map(element => bpmnVisualization.bpmnElementsRegistry.addOverlays(element.bpmnSemantic.id, overlay));
       },
 
-      resize: function(width, height) {
-
-      }
-
     };
   }
 });
