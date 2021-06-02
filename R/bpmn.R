@@ -34,17 +34,10 @@ NULL
 #'   and relative position.
 #' @param  markers A list of markersto highlight existing elements. Use marker
 #'   function to create a marker object with target elements.
-#' @param  width Fixed width for widget (in css units). The default is NULL,
-#'   which results in intelligent automatic sizing based on the widget's
-#'   container.
-#' @param  height Fixed height for widget (in css units). The default is NULL,
-#'   which results in intelligent automatic sizing based on the widget's
-#'   container.
 #' @param  elementId element id
 #' @export
 bpmn <- function(
-  bpmn_xml, overlays = NULL, markers = NULL,
-  width = NULL, height = NULL, elementId = NULL) {
+  bpmn_xml, overlays = NULL, markers = NULL, elementId = NULL) {
 
   if(inherits(bpmn_xml, "xml_document")) {
     bpmn_xml <- as.character(bpmn_xml)
@@ -58,22 +51,22 @@ bpmn <- function(
   }
 
   # widget parameters
-  x <- list(
-    bpmn_model = bpmn_xml
+  data <- list(
+    bpmnContent = bpmn_xml
   )
   if(length(overlays)) {
-    x$overlays <- overlays
+    data$overlays <- overlays
   }
   if(length(markers)) {
-    x$markers <- markers
+    data$markers <- markers
   }
 
   # create widget
   htmlwidgets::createWidget(
     name = 'bpmn',
-    x,
-    width = width,
-    height = height,
+    x = data,
+    width = NULL,
+    height = NULL,
     package = 'bpmn',
     elementId = elementId,
     sizingPolicy = htmlwidgets::sizingPolicy(

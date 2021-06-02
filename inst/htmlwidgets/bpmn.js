@@ -4,16 +4,16 @@ HTMLWidgets.widget({
 
   type: 'output',
 
-  factory: function(el) {
+  factory: function(containerElt) {
 
     // TODO: define shared variables for this instance
 
     return {
 
-      renderValue: function(x) {
-        const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: el });
+      renderValue: function(data) {
+        const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: containerElt });
 
-        const bpmnContent = x.bpmn_model;
+        const bpmnContent = data.bpmnContent;
         bpmnVisualization.load(bpmnContent);
       },
 
