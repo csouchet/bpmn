@@ -15,7 +15,7 @@ Install from GitHub:
 
 
 ```r
-devtools::install_github("bergant/bpmn")
+devtools::install_github("csouchet/bpmn")
 ```
 
 
