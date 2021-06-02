@@ -15,6 +15,27 @@ HTMLWidgets.widget({
 
         const bpmnContent = data.bpmnContent;
         bpmnVisualization.load(bpmnContent);
+
+
+        const elementsByKinds = bpmnVisualization.bpmnElementsRegistry.getElementsByKinds('startEvent');
+
+        // Add overlay
+        const overlayConfig = {
+          style: {
+            font: {
+              color: 'Black',
+              size: 12,
+            },
+            fill: {
+              color: '#ffaacc',
+            },
+            stroke: {
+              color: 'Grey',
+            }
+          }
+        };
+        const overlay = { position: 'top-center', label: '456', ...overlayConfig };
+        elementsByKinds.map(element => bpmnVisualization.bpmnElementsRegistry.addOverlays(element.bpmnSemantic.id, overlay));
       },
 
       resize: function(width, height) {
