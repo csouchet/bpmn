@@ -16,26 +16,46 @@ HTMLWidgets.widget({
         const bpmnContent = data.bpmnContent;
         bpmnVisualization.load(bpmnContent, { fit: {type: bpmnvisu.FitType.Center, margin: 30} });
 
+        // Add overlays
+        data.overlays.map(overlay => {
+          const elementsByIds =  bpmnVisualization.bpmnElementsRegistry.getElementsByIds(overlay.elementId);
 
-        const elementsByKinds = bpmnVisualization.bpmnElementsRegistry.getElementsByKinds('startEvent');
+          if(elementsByIds) {
+            const overlayConfig = elementsByIds[0].bpmnSemantic.isShape ? {
+              position: 'top-center',
+              label: overlay.label,
+              style: {
+                font: {
+                  color: 'White',
+                  size: 20,
+                },
+                fill: {
+                  color: 'rgba(54,160,54)',
+                },
+                stroke: {
+                  color: 'rgba(54,160,54)',
+                }
+              }
+            }: {
+              position: 'middle',
+              label: overlay.label,
+              style: {
+                font: {
+                  color: 'White',
+                  size: 30,
+                },
+                fill: {
+                  color: 'rgba(170,107,209)',
+                },
+                stroke: {
+                  color: 'rgba(170,107,209)',
+                }
+              }
+            };
 
-        // Add overlay
-        const overlayConfig = {
-          style: {
-            font: {
-              color: 'Black',
-              size: 12,
-            },
-            fill: {
-              color: '#ffaacc',
-            },
-            stroke: {
-              color: 'Grey',
-            }
+            bpmnVisualization.bpmnElementsRegistry.addOverlays(overlay.elementId, overlayConfig);
           }
-        };
-        const overlay = { position: 'top-center', label: '456', ...overlayConfig };
-        elementsByKinds.map(element => bpmnVisualization.bpmnElementsRegistry.addOverlays(element.bpmnSemantic.id, overlay));
+        });
       },
 
     };

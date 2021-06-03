@@ -8,14 +8,12 @@ test_that("Add two overlays", {
   overlays <- list(
 
     overlay(
-      element = "SCAN_OK",
-      html = "<div style='color: red'>Mixed up the labels?</div>"
+      elementId = "SCAN_OK",
+      label = "<div style='color: red'>Mixed up the labels?</div>"
     ),
     overlay(
-      element = "sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26",
-      html = "<div style='color: red'>Manually?</div>",
-      top = -40,
-      left = -40
+      elementId = "sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26",
+      label = "<div style='color: red'>Manually?</div>",
     )
   )
 

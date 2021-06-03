@@ -112,57 +112,18 @@ not_null_list <- function(...) {
 #' \code{overlays} argument in \code{\link{bpmn}} function. Use this structure
 #' to create correct overlay structure.
 #'
-#' @param element The bpmn element to which the overlay will be attached
-#' @param html HTML element to use as an overlay to use as an overlay
-#' @param type Optional type to assign to the overlay
-#' @param left Where to attach the overlay, relative to element bbox left
-#'   attachment
-#' @param right Where to attach the overlay, relative to element bbox right
-#'   attachment
-#' @param top Where to attach the overlay, relative to element bbox top
-#'   attachment
-#' @param bottom where to attach the overlay, relative to element bbox bottom
-#'   attachment
-#' @param min_zoom minimal zoom level to show the overlay
-#' @param max_zoom maximum zoom level to show the overlay
+#' @param elementId The bpmn element id to which the overlay will be attached
+#' @param label HTML element to use as an overlay to use as an overlay
 #'
 #' @return An overlay object
 #'
 #' @export
-overlay <- function(
-  element,
-  html,
-  type = "note",
-  left = NULL,
-  right = NULL,
-  top = NULL,
-  bottom = NULL,
-  min_zoom = NULL,
-  max_zoom = NULL) {
-
+overlay <- function(elementId, label) {
   ret <-
     not_null_list(
-      element = element,
-      type = type,
-      overlay = not_null_list(
-        html = html,
-        show = not_null_list(
-          minZoom = min_zoom,
-          maxZoom = max_zoom
-        ),
-        position = not_null_list(
-          left = left,
-          top = top,
-          bottom = bottom,
-          right = right
-        )
-      )
+      elementId = elementId,
+      label = label
     )
-  if(is.null(ret$overlay$position)) {
-    ret$overlay$position <- list(bottom = 0, right = 0)
-  }
-  class(ret) <- c("bpmn_overlay", "list")
-  ret
 }
 
 #' Get BPMN elements
