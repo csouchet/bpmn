@@ -29,6 +29,12 @@ Or
 bpmn_file <- file.choose()
 ```
 
+Or
+```r
+bpmn_file <- "path_to_bpmn_file"
+```
+
+
 ### Initialize the R package and load the BPMN diagram
 ```r
 bpmn(bpmn_file)
