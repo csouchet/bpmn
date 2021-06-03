@@ -1,20 +1,20 @@
 <h1 align="center">BPMN Visualization - R package - Poc</h1>
 <div align="center">
     <p align="center"> <img title="BPMN Visualization - R package - Poc" src="img/readme.png"></p>
-</div>  
+</div>
 <br>
 
 ## Overview
 This project is an R interface to the [bpmn-visualization](https://github.com/process-analytics/bpmn-visualization-js) library. \
-Using JavaScript in R is handled by [htmlwidgets](http://www.htmlwidgets.org/) framework. 
+Using JavaScript in R is handled by [htmlwidgets](http://www.htmlwidgets.org/) framework.
 
 
-## Usage 
+## Usage
 
 ### Installation
 Install from GitHub:
 ```r
-devtools::install_github("csouchet/bpmn")
+devtools::install_github("csouchet/bpmn-visualization-R-poc")
 library(bpmn)
 ```
 
