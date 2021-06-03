@@ -88,49 +88,6 @@ overlays <- list(
 bpmn(bpmn_file, overlays = overlays)
 ```
 
-
-## Markers
-
-To highlight some of the shapes with special style, create markers with selected elements and classes:
-
-<style>
-  .highlight:not(.djs-connection) .djs-visual > :nth-child(1) {
-    fill: lightgreen !important;
-  }
-  .highlight2:not(.djs-connection) .djs-visual > :nth-child(1) {
-    fill: cyan !important;
-  }
-</style>
-
-
-```{r}
-bpmn(bpmn_file, markers = list(
-  marker(
-    element = "sid-52EB1772-F36E-433E-8F5B-D5DFD26E6F26",
-    class_name = "highlight"
-  ),
-  marker(
-    element = "sid-E49425CF-8287-4798-B622-D2A7D78EF00B",
-    class_name = "highlight2"
-  )
-  
-))
-```
-
-For this effect some styles should be defined inside the HTML:
-
-```
-<style>
-  .highlight:not(.djs-connection) .djs-visual > :nth-child(1) {
-    fill: lightgreen !important;
-  }
-  .highlight2:not(.djs-connection) .djs-visual > :nth-child(1) {
-    fill: cyan !important;
-  }
-</style>
-```
-
-
 ## More
 
 There are a lot of bpmn-js features (e.g. designing a new diagram) which are not 

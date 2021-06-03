@@ -32,12 +32,9 @@ NULL
 #' @param  overlays A list of elements to be added to the diagram's existing
 #'   elements. Use overlay function to create an overlay object with content
 #'   and relative position.
-#' @param  markers A list of markersto highlight existing elements. Use marker
-#'   function to create a marker object with target elements.
-#' @param  elementId element id
 #' @export
 bpmn <- function(
-  bpmn_xml, overlays = NULL, markers = NULL, elementId = NULL) {
+  bpmn_xml, overlays = NULL) {
 
   if(inherits(bpmn_xml, "xml_document")) {
     bpmn_xml <- as.character(bpmn_xml)
@@ -57,9 +54,6 @@ bpmn <- function(
   if(length(overlays)) {
     data$overlays <- overlays
   }
-  if(length(markers)) {
-    data$markers <- markers
-  }
 
   # create widget
   htmlwidgets::createWidget(
@@ -68,7 +62,7 @@ bpmn <- function(
     width = NULL,
     height = NULL,
     package = 'bpmn',
-    elementId = elementId,
+    elementId = NULL,
     sizingPolicy = htmlwidgets::sizingPolicy(
       padding = 0,
       browser.fill = TRUE,
@@ -168,22 +162,6 @@ overlay <- function(
     ret$overlay$position <- list(bottom = 0, right = 0)
   }
   class(ret) <- c("bpmn_overlay", "list")
-  ret
-}
-
-#' Marker
-#'
-#' Create a marker object
-#'
-#' @param element The bpmn element to which the overlay will be attached
-#' @param class_name HTML class name to use for highlighting element
-#'
-#' @return A marker object
-#'
-#' @export
-marker <- function(element, class_name = "highlight") {
-  ret <- list(element = element, className = class_name)
-  class(ret) <- c("bpmn_marker", "list")
   ret
 }
 
