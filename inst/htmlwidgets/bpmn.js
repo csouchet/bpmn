@@ -27,7 +27,7 @@ HTMLWidgets.widget({
               style: {
                 font: {
                   color: 'White',
-                  size: 20,
+                  size: 14,
                 },
                 fill: {
                   color: 'rgba(54,160,54)',
@@ -42,7 +42,7 @@ HTMLWidgets.widget({
               style: {
                 font: {
                   color: 'White',
-                  size: 30,
+                  size: 18,
                 },
                 fill: {
                   color: 'rgba(170,107,209)',
