@@ -34,6 +34,11 @@ bpmn_file <- file.choose()
 bpmn(bpmn_file)
 ```
 
+### Initialize the R package and load the BPMN diagram with overlays
+```r
+bpmn(bpmn_file, overlays = list(overlay(bpmn_element_id_1, "42"), overlay(bpmn_element_id_2, "9")))
+```
+
 ## Development
 ### Installation
 ```r
