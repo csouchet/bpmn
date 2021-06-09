@@ -11,7 +11,7 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function(data) {
-        const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: containerElt });
+        const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: containerElt, navigation: { enabled: true } });
 
         const bpmnContent = data.bpmnContent;
         bpmnVisualization.load(bpmnContent, { fit: {type: bpmnvisu.FitType.Center, margin: 30} });
