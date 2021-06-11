@@ -7,11 +7,10 @@ HTMLWidgets.widget({
   factory: function(containerElt) {
 
     // TODO: define shared variables for this instance
+    const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: containerElt, navigation: { enabled: true } });
 
     return {
-
       renderValue: function(data) {
-        const bpmnVisualization = new bpmnvisu.BpmnVisualization({ container: containerElt, navigation: { enabled: true } });
 
         const bpmnContent = data.bpmnContent;
         bpmnVisualization.load(bpmnContent, { fit: {type: bpmnvisu.FitType.Center, margin: 30} });
@@ -57,7 +56,9 @@ HTMLWidgets.widget({
           }
         });
       },
-
+      resize: function(width, height) {
+        // TODO: forward resize
+      },
     };
   }
 });
