@@ -4,6 +4,8 @@
 </div>
 <br>
 
+:warning: :warning: :warning: This project has been replaced by [bpmn-visualization-R](https://github.com/process-analytics/bpmn-visualization-R). :warning: :warning: :warning:
+
 ## Overview
 This project is an R interface to the [bpmn-visualization](https://github.com/process-analytics/bpmn-visualization-js) library. \
 Using JavaScript in R is handled by [htmlwidgets](http://www.htmlwidgets.org/) framework.
